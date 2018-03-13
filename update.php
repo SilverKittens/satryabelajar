@@ -19,7 +19,8 @@
 			$nama=$_POST['nama_depan_komentar'];
 			$email=$_POST['email_komentar'];
 			$isi=$_POST['komentar'];
-			$sql = "UPDATE komentar SET nama='$nama', email_komentar='$email', time='CURRENT_TIMESTAMP', isi='$isi' WHERE id=$id";
+			$id=$_POST['id'];
+			$sql = "UPDATE komentar SET `nama`='$nama', `email`='$email', `time`=CURRENT_TIMESTAMP, `isi`='$isi' WHERE `id`='$id'";
 
 			//var_dump($sql);exit;
 			$query = mysqli_query($conn, $sql);

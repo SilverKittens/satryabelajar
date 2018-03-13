@@ -285,6 +285,8 @@ include("config.php");
               LIMIT 3
             ) AS sq 
             ORDER BY 'id' DESC";
+			$query = mysqli_query($conn, $sql);
+			$data = mysqli_fetch_assoc($query);
 			$result = $conn->query($sql);
 			if ($result->num_rows > 0) {
 				// output data of each row
