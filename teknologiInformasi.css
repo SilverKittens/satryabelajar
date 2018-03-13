@@ -209,17 +209,25 @@ p.footer{
     	padding-top: 20px;
 		padding-bottom: 20px;
 }
-input, textarea {
+#hubungi{
 	background-color: navy;
 	color: white;
 	border-color: white;
 	border-width: medium;
 	
 }
+#komen{
+	background-color:#FFFFFF;
+}
 .min25{
 	color: white;
 	float: left; 
 	width: 25%;
+}
+.min40{
+	color: white;
+	float: left; 
+	width: 40%;
 }
 .rows:after{
   content: "";
@@ -231,4 +239,80 @@ a:visited {
 }
 a:hover {
 	color: white;
+}
+
+.button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.tombol {
+  border-radius: 4px;
+  background-color:springgreen;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.tombol span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.tombol span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.tombol:hover span {
+  padding-right: 25px;
+}
+
+.tombol:hover span:after {
+  opacity: 1;
+  right: 0;
 }

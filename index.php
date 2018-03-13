@@ -1,3 +1,6 @@
+<?php
+include("config.php");
+?>
 <!doctype html>
 <html>
 <head>
@@ -5,7 +8,6 @@
 <title>Home - Departemen Teknologi Informasi</title>
 <link rel="stylesheet" type="text/css" href="teknologiInformasi.css">
 <link rel="shortcut icon" href="logo.ico" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 
@@ -234,6 +236,74 @@
 	</div>
 </div>
 
+
+<div id="contact" style="padding-top:20px">
+	<div style="background-color: navy; padding-bottom: 20px">
+		<h1 style="color: white">Komentar</h1>
+		<br>
+			<form action="formkomentar.php" method="post">
+				<div class="rows">
+					<p class="min40" style="color: darkcyan">Nama :</p>
+					<input class="komen" type="text" name="nama_depan_komentar" placeholder="Nama anda" style="height: 30px;float: left; width: 30%">
+				</div>
+				<div class="rows">
+					<p class="min40" style="color: darkcyan">E-mail :</p>
+					<input class="komen" type="email" name="email_komentar" placeholder="Email anda"  style="height:30px;float: left; width: 30%">
+				</div>
+				<div class="rows">
+				<textarea class="komen" name="komentar" style="width:50%; height:150px" placeholder="Tuliskan komentar anda disini..." ></textarea>
+				</div><br><br>
+				<div class="rows">
+				<input type="submit" value="Submit" style="font-size: 25px;margin: 0 auto">
+				</div>
+			</form>
+			
+			<br>
+	</div>
+	
+</div>
+			
+	<div>
+		<?php
+		$servername = "localhost";
+		$username = "id4957013_localhost";
+		$password = "localhost";
+		$dbname = "id4957013_userinfo";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		} 
+			$sql = "
+			SELECT * 
+            FROM (
+              SELECT nama, email, time, isi, id
+              FROM komentar
+              ORDER BY 'id' ASC 
+              LIMIT 3
+            ) AS sq 
+            ORDER BY 'id' DESC";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) { ?>
+				<div style="border:3px solid darkcyan; border-radius: 15px; width:40%;margin:20px auto">
+					<h1 style="text-align: left;margin-left: 20px;color: darkcyan"><?php echo $row["nama"] ?></h3>
+					<p style="text-align: left;margin-left: 40px"><?php echo $row["time"] ?></p>
+					<h5 style="text-align: left;margin-left: 40px;color: #1b75ab"><?php echo $row["email"] ?></h5><br>
+					<p style="text-align: left;margin-left: 40px"><?php echo $row["isi"] ?></p>
+					<a href="formupdate.php?id=<?php echo $data['id']; ?>" target="_self"><button style="text-align: left;margin-left: 20px" class="button"><span>Edit </span></button>
+					<a href="delete.php?id=<?php echo $data['id']; ?>" target="_self"><button class="tombol"><span>Hapus </span></button></a>
+					<p style="text-align: center">-------------------------------------</p>
+					</div>
+			<?php	}
+			} else { ?>
+				<p><?php echo "0 results"; ?></p>
+			<?php } ?>
+	</div>	
+
 <div id="contact" style="padding-top:20px">
 	<div style="background-color: navy; padding-bottom: 20px">
 		<h1 style="color: white">Hubungi Kami</h1>
@@ -241,16 +311,16 @@
 			<form action="form.php" method="post">
 				<div class="rows">
 					<p class="min25">Nama Lengkap :</p>
-					<input type="text" name="nama_depan_pengunjung" placeholder="Nama Lengkap anda" style="height: 30px;float: left; width: 50%">
+					<input class="hubungi" type="text" name="nama_depan_pengunjung" placeholder="Nama Lengkap anda" style="height: 30px;float: left; width: 50%">
 				</div>
 				<div class="rows">
 					<p class="min25">E-mail :</p>
-					<input type="email" name="email_pengunjung" placeholder="Email Address"  style="height:30px;float: left; width: 50%">
+					<input class="hubungi" type="email" name="email_pengunjung" placeholder="Email Address"  style="height:30px;float: left; width: 50%">
 				</div>
 				<div class="rows">
-				<textarea name="pesan_kesan" style="width:50%; height:150px" placeholder="Tuliskan pesan anda disini..." ></textarea></div><br><br>
+				<textarea class="hubungi" name="pesan_kesan" style="width:50%; height:150px" placeholder="Tuliskan pesan anda disini..." ></textarea></div><br><br>
 				<div class="rows">
-				<input type="submit"  style="font-size: 25px;">
+				<input type="submit" value="Submit" style="font-size: 25px;">
 				</div>
 			</form>
 			
@@ -258,8 +328,7 @@
 		<p class="footer">email : teknologi.informasi@its.ac.id</p>
 		<p class="footer">Departemen Teknologi Informasi ITS<br>Kampus ITS, Surabaya 60111<br>Indonesia</p>
 	</div>
-</div>
-
+	</div>
 <script>
 function myFunction() {
     var x = document.getElementById("mynavbar");
