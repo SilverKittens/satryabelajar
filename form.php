@@ -1,24 +1,9 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-require 'vendor/autoload.php';
-
-$mail = new PHPMailer;
-$mail->isSMTP();
-$mail->SMTPDebug =  4;
-$mail->SMTPAuth=true;
-$mail->Host='smtp.gmail.com';
-$mail->Port='587';
-$mail->SMTPSecure='tls';
-$mail->Username='noreplyteknologiinformasi@gmail.com';
-$mail->Password='12345678qwe';
-$mail->SetFrom('noreplyteknologiinformasi@gmail.com');
-$mail->Subject='Pesan Kesan';
-$mail->Body = $_POST["pesan_kesan"];
-$mail->AddAddress('bagusatrya1901@gmail.com');
-if($mail->send())
-echo 'sukses';
-else
-echo $mail->ErrorInfo;
+				$to      = 'bagusatrya1901@gmail.com';
+				$subject = 'pesan';
+				$message = 'Pesan ini dari ' . $_POST["nama_depan_pengunjung"] . '-' . $_POST["email_pengunjung"] . $_POST["pesan_kesan"] ;
+var_dump("$message");
+				mail($to, $subject, $message);
 ?>
 <html>
 <head>

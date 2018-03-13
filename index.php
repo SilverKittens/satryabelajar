@@ -253,6 +253,7 @@
 				<input type="submit"  style="font-size: 25px;">
 				</div>
 			</form>
+			
 			<br>
 		<p class="footer">email : teknologi.informasi@its.ac.id</p>
 		<p class="footer">Departemen Teknologi Informasi ITS<br>Kampus ITS, Surabaya 60111<br>Indonesia</p>
