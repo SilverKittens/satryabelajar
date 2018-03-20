@@ -14,7 +14,7 @@
 		$email=$_POST['email_komentar'];
 		$isi=$_POST['komentar'];
 		$sql = "INSERT INTO komentar (nama, email,time, isi) VALUES ('$nama', '$email', CURRENT_TIMESTAMP, '$isi')";
-		$query = mysqli_query($conn, $sql);
+		$query = mysqli_query($conn, $sql);	
 
 		// apakah query update berhasil?
 			if( $query ) {

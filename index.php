@@ -7,7 +7,7 @@ include("config.php");
 <meta  name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
 <title>Home - Departemen Teknologi Informasi</title>
 <link rel="stylesheet" type="text/css" href="teknologiInformasi.css">
-<link rel="shortcut icon" href="logo.ico" />
+<link rel="shortcut icon" href="Images/logo.ico" />
 </head>
 
 
@@ -67,7 +67,7 @@ include("config.php");
 		</ol>
 	  </div>
 	</div>
-	
+
 </div>
 
 <div id="mengapa" style="padding-top:20px">
@@ -257,12 +257,12 @@ include("config.php");
 				<input type="submit" value="Submit" style="font-size: 25px;margin: 0 auto">
 				</div>
 			</form>
-			
+
 			<br>
 	</div>
-	
+
 </div>
-			
+
 	<div>
 		<?php
 		$servername = "localhost";
@@ -275,15 +275,15 @@ include("config.php");
 		// Check connection
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
-		} 
+		}
 			$sql = "
-			SELECT * 
+			SELECT *
             FROM (
               SELECT nama, email, time, isi, id
               FROM komentar
-              ORDER BY 'id' ASC 
+              ORDER BY 'id' ASC
               LIMIT 3
-            ) AS sq 
+            ) AS sq
             ORDER BY 'id' DESC";
 			$query = mysqli_query($conn, $sql);
 			$data = mysqli_fetch_assoc($query);
@@ -304,7 +304,7 @@ include("config.php");
 			} else { ?>
 				<p><?php echo "0 results"; ?></p>
 			<?php } ?>
-	</div>	
+	</div>
 
 <div id="contact" style="padding-top:20px">
 	<div style="background-color: navy; padding-bottom: 20px">
@@ -325,7 +325,7 @@ include("config.php");
 				<input type="submit" value="Submit" style="font-size: 25px;">
 				</div>
 			</form>
-			
+
 			<br>
 		<p class="footer">email : teknologi.informasi@its.ac.id</p>
 		<p class="footer">Departemen Teknologi Informasi ITS<br>Kampus ITS, Surabaya 60111<br>Indonesia</p>
@@ -341,7 +341,7 @@ function myFunction() {
     }
 }
 	document.getElementById("tanggal").innerHTML = Date();
-	
+
 $(document).ready(function(){
   // Add smooth scrolling to all links
   $(".scroll").on('click', function(event) {
@@ -359,7 +359,7 @@ $(document).ready(function(){
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 800, function(){
-   
+
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
