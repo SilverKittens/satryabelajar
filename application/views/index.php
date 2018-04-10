@@ -260,7 +260,7 @@
 
 	<div>
 		<?php
-		$query = $this->db->query('SELECT id,nama, time, email,isi FROM komentar');
+		$query = $this->db->query('SELECT id,nama, time, email,isi FROM komentar LIMIT 5');
 
 		foreach ($query->result_array() as $row)
 		{?>
@@ -274,6 +274,15 @@
 					<p style="text-align: center">-------------------------------------</p>
 					</div>
 			<?php	}?>
+			<div style="text-align:center">
+				<form action="<?php echo base_url()?>home/download">
+			<button type="submit" class="btn btn-success">Download Komentar</button>
+			<br><br>
+		</form>
+			<form action="<?php echo base_url()?>grafik_controller">
+		<button type="submit" class="btn btn-success">Lihat Grafik Komentar</button>
+	</form>
+			</div>
 	</div>
 
 <div id="contact" style="padding-top:20px">

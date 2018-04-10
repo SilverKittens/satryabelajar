@@ -16,4 +16,11 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('formupdate');
 	}
+	public function download()
+	{
+		$data = $this->load->view('data');
+		header("Content-Type: application/ms-excel");
+		header("Content-Disposition: attachment; filename=komentar.xls");
+		echo $data;
+	}
 }
